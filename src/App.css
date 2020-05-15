@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body {
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('./assets/bg.jpg') center/cover scroll;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  background-color: rgb(231, 228, 228);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card__content {
+  font-size: 30px;
+  font-family: 'Jost', sans-serif;
+  padding: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .card__content{
+    font-size: 25px;
+  } 
+}
+
+@media screen and (max-width: 500px) {
+  .card__content{
+    font-size: 20px;
+  } 
+}
+
+.btn {
+  position: relative;
+  bottom: 0;
+  outline: none;
+  text-decoration: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px;
+  opacity: 1;
+  background-color: #164ca7;
+}
+
+.btn span {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.btn:hover {
+  animation: rotate 0.7s ease-in-out both;
+}
+  
+.btn:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
   }
 }
